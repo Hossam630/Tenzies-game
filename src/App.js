@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Game from './Game.js'
+import LevelSelection from './LevelSelection.js'
+
 
 function App() {
+  const [diesCount, setDiesCount] = React.useState(0)
+
+  console.log(diesCount)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      {!diesCount && <LevelSelection setDiesCount={setDiesCount} />}
+      <Game DiesCount = {diesCount} setDiesCount={setDiesCount}/>
+    </main>
   );
 }
 
